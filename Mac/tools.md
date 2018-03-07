@@ -14,16 +14,9 @@ Alfred是比macOS自带的Spotlight更强大的集成执行器，提供快速打
 * 运行`brew cask install sketch-toolbox`安装Sketch插件管理器。
 * 运行sketch-toolbox，搜索安装Marketch。
 
-## Sketch入门
-阅读「Sketch中文手册」中的如下章节，了解基本概念与操作。
-* [属性检查器](http://sketch.im/index.php?m=content&c=index&a=lists&catid=5)
-* [选择图层](http://sketch.im/index.php?m=content&c=index&a=lists&catid=10)
-* [文本检查器](http://sketch.im/index.php?m=content&c=index&a=lists&catid=23)
-* [位图编辑](http://sketch.im/index.php?m=content&c=index&a=lists&catid=29)
-* [组](http://sketch.im/index.php?m=content&c=index&a=lists&catid=41)
-* [画板](http://sketch.im/index.php?m=content&c=index&a=lists&catid=42)
-* [画布](http://sketch.im/index.php?m=content&c=index&a=lists&catid=44)
-* [测量](http://sketch.im/index.php?m=content&c=index&a=lists&catid=47)
-* [导出图层](http://sketch.im/index.php?m=content&c=index&a=lists&catid=49)
-* [切片](http://sketch.im/index.php?m=content&c=index&a=lists&catid=50)
-* [CSS 属性](http://sketch.im/index.php?m=content&c=index&a=lists&catid=53)
+## autojump
+autojump是一个命令行工具，它可以使用快捷命令，直接跳转到配置好的目录，而不用管现在身在何处，依赖zsh。
+* 运行`brew install autojump`安装
+* 在.zshrc文件找到`plugins=`,在后面添加autojump:`plugins=(git autojump)`
+* 新开一行添加:`[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh`
+* 保存并重启终端

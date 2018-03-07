@@ -3,9 +3,21 @@
 ## 安装Git和配置用户信息
 * 运行`brew install git`安装。
 * 运行如下命令配置。
+
 ```sh
 git config --global user.name "姓名"
 git config --global user.email "邮件地址"
+```
+
+##### 为了敲命令的时候少敲几个字，可以考虑添加Git子命令别名。
+
+```sh
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status -s
+$ git config --global alias.l "log --oneline --decorate -12"
+$ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
 ```
 
 ## 配置外部比较工具diffmerge
