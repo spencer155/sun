@@ -8,7 +8,6 @@ Alfred是比macOS自带的Spotlight更强大的集成执行器，提供快速打
 * 运行`brew cask install sublime`安装。
 * 安装[Package Control](https://packagecontrol.io/installation)。
 * 使用Package Control[安装所需插件](https://packagecontrol.io/docs/usage)。
-* 暂时不强制安装`eslint`插件。
 
 ## Sketch安装
 * 安装[破解版Sketch](http://xclient.info/s/sketch.html)。

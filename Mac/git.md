@@ -4,8 +4,8 @@
 * 运行`brew install git`安装。
 * 运行如下命令配置。
 ```sh
-git config --global user.name "姓名全拼"
-git config --global user.email "公司邮件地址"
+git config --global user.name "姓名"
+git config --global user.email "邮件地址"
 ```
 
 ## 配置外部比较工具diffmerge
