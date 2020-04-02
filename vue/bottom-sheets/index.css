@@ -1,0 +1,82 @@
+@import '../../src/style/tools.css';
+@import '../../src/style/animate.css';
+
+.bx-sheets-layer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--sheets-zindex);
+  height: 40%;
+  background-color: var(--sheets-bg-color);
+  transform: translate3d(0, 0, 0);
+
+  & .bx-sheets-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    & .bx-sheets-header-inner {
+      height: 45px;
+      line-height: 45px;
+      font-size: 14px;
+      color: var(--sheets-header-color);
+
+      &::after {
+        @apply --border-bottom;
+      }
+    }
+
+    & .bx-sheets-title {
+      @apply --text-wrap;
+      @apply --ellipsis;
+
+      padding: 0 50px;
+      text-align: center;
+    }
+
+    & .bx-sheets-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0 15px;
+      font-size: 0;
+      line-height: 1;
+
+      & .bx-icon {
+        display: inline-block;
+        margin-top: 13px;
+        font-size: 18px;
+        color: #ccc;
+      }
+    }
+  }
+
+  & .bx-sheets-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+
+  & .bx-sheets-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  & .bx-sheets-content--scroll {
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

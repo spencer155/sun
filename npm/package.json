@@ -1,0 +1,14 @@
+{
+  "name": "bxs-trading-lib-base",
+  "version": "1.0.0",
+  "description": "bxs trading lib base",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "trading"
+  ],
+  "author": "sunbin",
+  "license": "ISC"
+}

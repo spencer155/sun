@@ -1,0 +1,61 @@
+@import '../../src/style/tools.css';
+
+.bx-area-header {
+  font-size: 14px;
+
+  & .bx-area-title {
+    display: flex;
+    justify-content: space-between;
+    color: var(--area-text-primary-color);
+    height: 45px;
+    line-height: 45px;
+    padding: 0 15px;
+
+    & .bx-area-cancel {
+      color: var(--area-text-patch-color);
+    }
+
+    & .bx-area-confirm {
+      color: var(--area-text-disabled-color);
+    }
+
+    & .bx-area-confirm--primary {
+      color: var(--area-text-confirm-color);
+    }
+  }
+
+  & .bx-area-tabs {
+    display: flex;
+    justify-content: flex-start;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 15px;
+
+    & .bx-area-tab {
+      max-width: 60px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-right: 21px;
+    }
+  }
+}
+
+.bx-area-container {
+  font-size: 14px;
+  color: var(--area-text-primary-color);
+  padding: 0 15px;
+
+  & .bx-area-items {
+    padding-top: 15px;
+
+    & .bx-area-item {
+      line-height: 17px;
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.bx-area-active {
+  color: var(--area-text-confirm-color);
+}
