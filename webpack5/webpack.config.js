@@ -35,10 +35,12 @@ module.exports = {
           {
             loader:'css-loader', // url import 处理
             options: {
+              // 在处理引入的别的css文件时，要先把别的css文件经过几个loader的处理结果合并到当前文件中
+              // 1就是向下找1个loader
               importLoaders:1
             }
           },
-          // 'postcss-loader' // css 预处理器
+          'postcss-loader' // css 预处理器
         ]
       },
       {
@@ -48,10 +50,11 @@ module.exports = {
           {
             loader:'css-loader', // url import 处理
             options: {
-              importLoaders:1
+              importLoaders:2
             }
           },
-          'less-loader' // 把less 转成 css
+          'postcss-loader',
+          'less-loader' // 把less 转成 css 在这一步 已经把import 进行转换css了
         ]
       },
       {

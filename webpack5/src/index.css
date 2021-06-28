@@ -8,3 +8,10 @@ body {
   width: 100px;
   height: 100px;
 }
+
+.postcss {
+  width: 100px;
+  height: 100px;
+  transform: rotate(70deg);
+  background-color: royalblue;
+}
