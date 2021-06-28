@@ -1,7 +1,12 @@
-import './index.css'
-import './less.less'
+function readonly(target, key, descriptor) {
+  console.log(target, key, descriptor)
+  descriptor.writable = false
+}
 
-import './assets/sss.jpeg'
+class Circle {
+  @readonly PI = 3.14
+}
 
-const sss = require('./assets/sss.jpeg');
-console.log(sss)
+const c1 = new Circle();
+c1.PI = 3.15
+console.log(c1.PI)
