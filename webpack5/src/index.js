@@ -1,6 +1,7 @@
-const title = require('./title')
-const text = require('./text.txt')
-console.log(title)
-console.log(text.default)
-// 不设置 默认都是production
-console.log(process.env.NODE_ENV)
+import './index.css'
+import './less.less'
+
+import './assets/sss.jpeg'
+
+const sss = require('./assets/sss.jpeg');
+console.log(sss)

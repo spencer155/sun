@@ -1,0 +1,10 @@
+@import url('./base.css');
+body {
+  color:#fff;
+}
+
+.logo {
+  background-image: url('./assets/sss.jpeg');
+  width: 100px;
+  height: 100px;
+}

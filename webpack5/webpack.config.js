@@ -13,13 +13,60 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname,'dist'),
-    filename: 'main.js'
+    filename: 'main.js',
+    // publicPath:'/'
+  },
+  devServer: {
+    contentBase: path.resolve('public'),// 额外的静态文件内容的目录
+    compress: false, // 是否启动压缩gzip
+    port: 8080, // 端口号
+    open: false, // 启动时时候默认打开浏览器
   },
   module:{
     rules:[
       {
         test:/\.txt$/,
         use:'raw-loader'
+      },
+      {
+        test:/\.css$/,
+        use:[
+          'style-loader',// css 转 js 结果一定是js webpack只认识js
+          {
+            loader:'css-loader', // url import 处理
+            options: {
+              importLoaders:1
+            }
+          },
+          // 'postcss-loader' // css 预处理器
+        ]
+      },
+      {
+        test:/\.less$/,
+        use:[
+          'style-loader',// css 转 js 结果一定是js webpack只认识js
+          {
+            loader:'css-loader', // url import 处理
+            options: {
+              importLoaders:1
+            }
+          },
+          'less-loader' // 把less 转成 css
+        ]
+      },
+      {
+        test:/\.(jpg|png|jpeg)$/,
+        use:[
+          {
+            // loader:'file-loader',
+            loader:'url-loader',
+            options: {
+              esModule: false,
+              name: '[hash:8].[ext]',
+              limit: 8*1024 // 小于8K就把图片变成base64
+            }
+          }
+        ]
       }
     ]
   },
