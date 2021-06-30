@@ -1,3 +1,5 @@
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-ReactDOM.render('sun', document.getElementById('root'));
+debugger;
+ReactDOM.render(<h1>sun</h1>, document.getElementById('root'));

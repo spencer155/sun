@@ -7,6 +7,6 @@ module.exports = {
     node: true,
   },
   rules: {
-    'no-console': off,
+    'no-console': 'off',
   },
 };
