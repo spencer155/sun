@@ -26,12 +26,21 @@ module.exports = {
     rules:[
       {
         test:/\.js$/,
+        loader:'eslint-loader',
+        enforce:'pre', //loader分类 pre => normal => inline => post
+        options:{
+          fix:true
+        },
+        exclude:/node_modules/
+      },
+      {
+        test:/\.js$/,
         use:[
           {
             loader: 'babel-loader',
             options: {
               presets:[
-                '@babel/preset-env'                
+                '@babel/preset-env','@babel/preset-react'                
               ],
               plugins:[
                 ['@babel/plugin-proposal-decorators',{legacy:true}],
