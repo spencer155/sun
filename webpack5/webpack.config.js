@@ -4,7 +4,7 @@ const FileManagerPlugin = require('filemanager-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 
 // 不能在node环境下访问
-console.log('config', process.env.NODE_ENV);
+
 module.exports = {
   mode: 'development', // 命令行和这里同时设置了mode，命令行的优先级高于这里设置
   // mode: process.env.NODE_ENV,
@@ -20,11 +20,26 @@ module.exports = {
     filename: 'main.js',
     // publicPath:'/'
   },
+  // 内部其实启动了express服务器
   devServer: {
     contentBase: path.resolve('public'), // 额外的静态文件内容的目录
     compress: false, // 是否启动压缩gzip
     port: 8080, // 端口号
     open: false, // 启动时时候默认打开浏览器
+    proxy: {
+      // '/api': 'http://localhost:3000',
+      // '/api': {
+      //   target: 'http://localhost:3000',
+      //   pathRewrite: {
+      //     '^/api': '',
+      //   },
+      // },
+    },
+    before(app) {
+      app.get('/users', (req, res) => {
+        res.json({ code: 200, data: [{ id: 1, name: 'sun' }] });
+      });
+    },
   },
   module: {
     rules: [
