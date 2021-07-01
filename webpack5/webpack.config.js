@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const { DefinePlugin } = require('webpack');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // 不能在node环境下访问
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
   // mode: process.env.NODE_ENV,
   // 开发环境推荐用eval-source-map
   // devtool: 'source-map', // source-map ：行+列+babel映射
-  // 线上
+  // 生产
   devtool: 'hidden-source-map',
   entry: {
     main: './src/index.js',
@@ -76,7 +76,9 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader', // css 转 js 结果一定是js webpack只认识js
+          // 'style-loader', // css 转 js 结果一定是js webpack只认识js
+          // 生产
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader', // url import 处理
             options: {
@@ -92,6 +94,7 @@ module.exports = {
         test: /\.less$/,
         use: [
           'style-loader', // css 转 js 结果一定是js webpack只认识js
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader', // url import 处理
             options: {
@@ -112,6 +115,8 @@ module.exports = {
               esModule: false,
               name: '[hash:8].[ext]',
               limit: 8 * 1024, // 小于8K就把图片变成base64
+              outputPath: 'images',
+              publicPath: '/images',
             },
           },
         ],
@@ -137,6 +142,9 @@ module.exports = {
           delete: ['./dist/*.map'],
         },
       },
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css',
     }),
   ],
 };
