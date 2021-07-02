@@ -14,10 +14,21 @@ module.exports = {
   devtool: 'hidden-source-map',
   entry: {
     main: './src/index.js',
+    vendor: ['react'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
+    // filename: 'main.js',
+    // 如果都用hash的话，改了index.js vendor.hash.js缓存也会失效
+    // 如何选择？
+    // hash
+    // chunkhash
+    // contenthash
+    // 从上往下 生成的效率越来越低，成本越来越高 影响的范围越来越小，精度越来越细
+    // 文件变化的概率特别小，就选择contenthash
+    // 每次都要变就选择 hash
+    // chunkhash用的比较多
+    filename: '[name].[chunkhash:8].js',
     // publicPath:'/'
   },
   // 内部其实启动了express服务器
@@ -144,7 +155,7 @@ module.exports = {
       },
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
+      filename: 'css/[name].[contenthash:8].css',
     }),
   ],
 };
