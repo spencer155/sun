@@ -5,6 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>webpack5</title>
+  <script>
+    const docElement = document.documentElement;
+    function setRem() {
+      docElement.style.fontSize = docElement.clientWidth/10 + 'px'
+    }
+    setRem()
+  </script>
 </head>
 <body>
   <div id="root"></div>

@@ -109,6 +109,13 @@ module.exports = {
             },
           },
           'postcss-loader', // css 预处理器
+          {
+            loader: 'px2rem-loader',
+            options: {
+              remUnit: 75, // 规定一个rem单位是75px
+              remPrecession: 8, // 保留几位小数
+            },
+          },
         ],
       },
       {
