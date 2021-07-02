@@ -3,10 +3,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// 压缩css
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+// 压缩js
+const TerserPlugin = require('terser-webpack-plugin');
 // 不能在node环境下访问
 
 module.exports = {
-  mode: 'development', // 命令行和这里同时设置了mode，命令行的优先级高于这里设置
+  mode: 'none', // 命令行和这里同时设置了mode，命令行的优先级高于这里设置
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin(),
+    ],
+  },
   // mode: process.env.NODE_ENV,
   // 开发环境推荐用eval-source-map
   // devtool: 'source-map', // source-map ：行+列+babel映射
@@ -137,6 +147,10 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+      },
     }),
     new DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
@@ -157,5 +171,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
     }),
+    new OptimizeCssAssetsWebpackPlugin(),
   ],
 };
