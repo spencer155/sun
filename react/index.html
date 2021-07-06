@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- crossorigin js文件错误能在本地打印错误 -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+  <script type="text/babel">
+    // 要使用jsx语法 要在script标签加上这个属性 type="text/babel"
+    // jsx 最外层只能有一个跟标签
+    let msg = "ssss"
+    function onClick() {
+      msg = "sun bin"
+      render()
+    }
+
+    function render() {
+      ReactDOM.render(
+        <div>
+          <h2>{msg}</h2>
+          <button onClick={onClick}>改变文本</button>
+        </div>,
+        document.getElementById("app"))
+    }
+    render()
+  </script>
+</body>
+
+</html>
