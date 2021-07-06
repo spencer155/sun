@@ -17,23 +17,28 @@
 
 
   <script type="text/babel">
-    // 要使用jsx语法 要在script标签加上这个属性 type="text/babel"
-    // jsx 最外层只能有一个跟标签
-    let msg = "ssss"
-    function onClick() {
-      msg = "sun bin"
-      render()
+    class App extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          msg : 'sun bin'
+        }
+      }
+      render() {
+        return (
+          <div>
+            <h2>{this.state.msg}</h2>
+            <button onClick={this.btnClick.bind(this)}>改变文本</button>  
+          </div>
+        )
+      }
+      btnClick() {
+        this.setState({
+          msg:'sun ssss'
+        })
+      }
     }
-
-    function render() {
-      ReactDOM.render(
-        <div>
-          <h2>{msg}</h2>
-          <button onClick={onClick}>改变文本</button>
-        </div>,
-        document.getElementById("app"))
-    }
-    render()
+    ReactDOM.render(<App/>,document.getElementById('app'))
   </script>
 </body>
 
