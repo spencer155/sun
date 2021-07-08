@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border:1px solid #eee;
+      border-collapse: collapse;
+    }
+    th,td {
+      border:1px solid #eee;
+      padding:15px;
+      text-align: center;
+    }
+    .num {
+      margin:0 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          list: [{
+            id:1,
+            name: '算法',
+            time: '2006-9',
+            price: 85,
+            num: 1
+          }]
+        }
+      }
+      renderList() {
+        const { list } = this.state
+        const totalPrice = list.reduce((prev,current) => {
+          return prev + current.price * current.num
+        },0)
+        return (
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>书籍名称</th>
+                  <th>出版日期</th>
+                  <th>价格</th>
+                  <th>购买数量</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  list.map((item, index) => {
+                    return (
+                      <tr key={item.id}>
+                        <td>{index + 1}</td>
+                        <td>{item.name}</td>
+                        <td>{item.time}</td>
+                        <td>{this.formatPrice(item.price)}</td>
+                        <td>
+                          <button disabled={item.num === 1} onClick={() => { this.decrement(index)}}>-</button>
+                          <span className="num">{item.num}</span>
+                          <button onClick={() => { this.increment(index)}}>+</button>
+                        </td>
+                        <td><button onClick={() => { this.deleteItem(item,index)}}>移除</button></td>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
+           
+            <div>总价格：{this.formatPrice(totalPrice)}</div>
+          </div>
+        )
+      }
+      renderEmpty() {
+        return <div>购物车为空</div>
+      }
+      render() {
+        return this.state.list.length ? this.renderList(): this.renderEmpty()
+      }
+      decrement(index) {
+        const newList = [...this.state.list]
+        newList[index].num -= 1
+        this.setState({
+          list: newList
+        })
+      }
+      increment(index) {
+        const newList = [...this.state.list]
+        newList[index].num += 1
+        this.setState({
+          list: newList
+        })
+      }
+      formatPrice(price) {
+        if ( typeof price === 'number') {
+          price = Number(price) || 0
+        }
+        return `¥${price.toFixed(2)}`
+      }
+      deleteItem(item,index) {
+        this.state.list.splice(index,1)
+        this.setState({
+          list: this.state.list
+        })
+      }
+    }
+    ReactDOM.render(<App />, document.getElementById('app'))
+  </script>
+</body>
+
+</html>
