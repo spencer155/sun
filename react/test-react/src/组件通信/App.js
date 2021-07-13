@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import propTypes from 'prop-types'
 
 class ChildApp extends Component {
   render() {
@@ -9,13 +9,22 @@ class ChildApp extends Component {
     )
   }
 }
+ChildApp.propTypes = {
+  name:propTypes.string,
+  age:propTypes.number
+}
+ChildApp.defaultProps = {
+  name:'aaaa',
+  age:1111
+}
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <ChildApp name="sun" age="11"></ChildApp>
-        <ChildApp name="bin" age="22"></ChildApp>
+        <ChildApp name="sun" age={11}></ChildApp>
+        <ChildApp name="bin" age={22}></ChildApp>
+        <ChildApp></ChildApp>
       </div>
     )
   }
