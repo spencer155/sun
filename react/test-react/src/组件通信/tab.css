@@ -1,0 +1,10 @@
+.tab-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.active {
+  color: red;
+  border-bottom: 1px solid red;
+}
