@@ -16,10 +16,27 @@ class Name extends Component {
 }
 Name.contextType = UserContext
 
+function Age() {
+  return (
+    <UserContext.Consumer>
+      {
+      value => {
+        return (
+          <div>
+          年龄：{value.age}
+          </div>
+        )
+      }
+    }
+    </UserContext.Consumer>
+  )
+}
+
 function Main() {
   return (
     <div>
       <Name/>
+      <Age/>
     </div>
   )
 }
@@ -29,7 +46,8 @@ export default class App extends Component {
   constructor() {
     super()
     this.state = {
-      name:'啊啊首冬发生地方'
+      name:'啊啊首冬发生地方',
+      age:111
     }
   }
   render() {
