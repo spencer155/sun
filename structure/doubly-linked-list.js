@@ -95,6 +95,7 @@ class LinkedList {
     const index = this.indexOf(element)
     if (index === -1) return;
     this.removeAt(index)
+    return index
   }
   isEmpty() {
     return this.length === 0
@@ -201,7 +202,13 @@ doublyLinkedList.insert(2,'a')
 doublyLinkedList.insert(0,'b')
 console.log(doublyLinkedList.get(0))
 console.log(doublyLinkedList.get(5))
-console.log(doublyLinkedList.removeAt(5))
-console.log(doublyLinkedList.removeAt(0))
+// console.log(doublyLinkedList.removeAt(5))
+// console.log(doublyLinkedList.removeAt(0))
+
+console.log(doublyLinkedList.update(0,'sun'))
+console.log(doublyLinkedList.update(1,'bin'))
+console.log(doublyLinkedList)
+console.log(doublyLinkedList.remove('bin'))
+console.log(doublyLinkedList.remove('sun'))
 
 console.log(doublyLinkedList)
