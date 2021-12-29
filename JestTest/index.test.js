@@ -1,5 +1,4 @@
-const {a,b} = require('./index')
-
+import {a,b} from './index'
 
 test('a-18岁',() => {
   expect(a(18)).toBe('成人')
