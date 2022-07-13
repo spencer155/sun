@@ -61,7 +61,7 @@ test('toContain匹配器', () => {
 
 
 const error = () => {
-  throw new error ('报错')
+  throw new Error ('报错')
 }
 
 test('toThrow匹配器',() => {
