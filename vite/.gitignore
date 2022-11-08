@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+.sass-cache/
+dist/
+npm-debug.*
+report.*
+test/unit/coverage
+test/e2e/reports
+selenium-debug.log
+.idea/
+.vscode/
+.cache/
+/*.lnk
+coverage/
