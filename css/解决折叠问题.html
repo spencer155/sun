@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 
+      box1 设置 margin-bottom 30px 
+      box2 设置margin-top 50px 
+      实际距离只有50px
+      同一个BFC里面 2个块级元素的margin会折叠
+     */
+    .box1 {
+      height: 200px;
+      background-color: orange;
+      margin-bottom: 20px;
+      /* overflow: auto; */
+      /* box1 本身还是在同一个BFC */
+    }
+    .box2 {
+      height: 150px;
+      background-color: purple;
+      margin-top: 50px;
+    }
+    /* 这样box1 属于 container BFC 和box2 不是同一个BFC */
+    .container {
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box1"></div>
+  </div>
+  
+  <div class="box2"></div>
+</body>
+</html>
